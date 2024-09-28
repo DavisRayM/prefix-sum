@@ -4,7 +4,7 @@
 /// & explanations from Seattle University CPSC 5600 F24
 ///
 /// Note: This code could *probably* be shortened quite a bit if one decides to
-/// use Vectors & std::inclusive_scan for the sequentiel portions of the
+/// use Vectors & std::inclusive_scan(for the sequential portions?)
 /// code...
 #include <iostream>
 #include <omp.h>
