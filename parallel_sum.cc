@@ -1,8 +1,9 @@
 /// Parallel Sum - Work-efficient algorithm implementation.
-/// Based on the Wikipedia algorithm explanation & explanations from
-/// CPSC 5600 F24
+/// Based on [Prefix Sum Work Efficient
+/// Algorithm](https://en.wikipedia.org/wiki/Prefix_sum#Algorithm_2:_Work-efficient)
+/// & explanations from Seattle University CPSC 5600 F24
 ///
-/// Note: This code could probably be shortened quite a bit if one decides to
+/// Note: This code could *probably* be shortened quite a bit if one decides to
 /// use Vectors & std::inclusive_scan for the sequentiel portions of the
 /// code...
 #include <iostream>
@@ -83,10 +84,10 @@ int main(int argc, char *argv[]) {
 
   std::cout << "Prefix Sum Array (y): ";
   print_array(y, arraySize);
-  std::cout << "\n";
+  std::cout << "\n\n";
 
 #ifdef TIMING
-  std::cout << "\nTime taken to calculate: " << tt2.count() << " seconds\n\n";
+  std::cout << "Time taken to calculate: " << tt2.count() << " seconds\n\n";
 #endif
 
   delete[] x;
@@ -105,9 +106,14 @@ int *random_array(int count) {
 }
 
 void print_array(int *arr, int size) {
+  std::cout << '[';
   for (int i = 0; i < size; i++) {
-    std::cout << arr[i] << ' ';
+    std::cout << arr[i];
+    if (i + 1 < size) {
+      std::cout << ", ";
+    }
   }
+  std::cout << ']';
 }
 
 int *calculate_sequence_z(int *x, int sourceArrSize) {
@@ -134,10 +140,10 @@ int *calculate_sequence_z(int *x, int sourceArrSize) {
 
   std::cout << "Sequence z: ";
   print_array(result, sourceArrSize / 2);
-  std::cout << "\n";
+  std::cout << "\n\n";
 
 #ifdef TIMING
-  std::cout << "\nTime taken to calculate: " << tt0.count() << " seconds\n\n";
+  std::cout << "Time taken to calculate: " << tt0.count() << " seconds\n\n";
 #endif
 
   return result;
@@ -167,10 +173,10 @@ int *calculate_sequence_w(int *z, int sourceArrSize) {
 
   std::cout << "Sequence w: ";
   print_array(result, sourceArrSize / 2);
-  std::cout << "\n";
+  std::cout << "\n\n";
 
 #ifdef TIMING
-  std::cout << "\nTime taken to calculate: " << tt1.count() << " seconds\n\n";
+  std::cout << "Time taken to calculate: " << tt1.count() << " seconds\n\n";
 #endif
 
   return result;
