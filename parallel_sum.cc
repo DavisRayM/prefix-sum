@@ -99,6 +99,8 @@ int main(int argc, char *argv[]) {
   y[0] = x[0];
   y[1] = z[0];
 
+  delete[] z;
+
   std::cout << "Calculating sequence y in parallel\n";
 
   // Start Time 2
@@ -121,6 +123,9 @@ int main(int argc, char *argv[]) {
   std::cout << "Prefix Sum Array (y): ";
   print_array(y, arraySize);
   std::cout << "\n\nTime taken to calculate: " << tt2.count() << " seconds\n\n";
+
+  delete[] x;
+  delete[] y;
 
   return 0;
 }
